@@ -2,26 +2,27 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Footer from "./components/Footer";
-import About from "./components/About";
-import WhyUs from "./components/WhyUs";
-import Team from "./components/Team";
-import Stats from "./components/Stats";
-import Services from "./components/Services";
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Service from "./pages/Service";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/services",
+    element: <Service />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Header />
-    <Hero />
-    <About />
-    <Services />
-    <Stats />
-    <Team />
-    <WhyUs />
-    <Footer />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
