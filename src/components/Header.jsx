@@ -4,6 +4,13 @@ import { metadata } from "../store/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
+const pages = [
+  { name: "Home", href: "#" },
+  { name: "About", href: "#" },
+  { name: "Services", href: "#" },
+  { name: "Contact", href: "#" },
+];
+
 export default function Header() {
   function toggleMenu() {
     const mobileMenu = document.querySelector("#mobile-menu");
@@ -39,36 +46,23 @@ export default function Header() {
 
           {/* Desktop Navigation  */}
           <div className="hidden lg:flex lg:gap-x-12">
-            <a
-              href="#"
-              className="text-base/7 font-semibold text-orange-100 hover:text-orange-700"
-            >
-              Home
-            </a>
-            <a
-              href="#"
-              className="text-base/7 font-semibold text-orange-100 hover:text-orange-700"
-            >
-              Services
-            </a>
-            <a
-              href="#"
-              className="text-base/7 font-semibold text-orange-100 hover:text-orange-700"
-            >
-              Portfolio
-            </a>
-            <a
-              href="#"
-              className="text-base/7 font-semibold text-orange-100 hover:text-orange-700"
-            >
-              Contact
-            </a>
+            {pages.map(page => (
+              <a
+                key={page.name}
+                href={page.href}
+                className="text-base/7 font-semibold text-orange-100 hover:text-orange-700"
+              >
+                {page.name}
+              </a>
+            ))}
           </div>
 
           {/* Mobile Menu Toggle  */}
           <div className="flex lg:hidden">
             <button className="text-orange-900" onClick={toggleMenu}>
-              <span className="sr-only">Open main menu</span>
+              <span className="sr-only" aria-label="Open main menu">
+                Open main menu
+              </span>
               <svg
                 className="size-6"
                 fill="none"
@@ -88,7 +82,7 @@ export default function Header() {
           {/* Desktop Contact  */}
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <a
-              href="tel:+919876543210"
+              href={`tel:${metadata.phone}`}
               className="text-base/7 font-semibold text-orange-100 hover:text-orange-700"
             >
               {metadata.phone}
@@ -131,34 +125,19 @@ export default function Header() {
         <div className="mt-6 flow-root">
           <div className="-my-6 divide-y divide-orange-200">
             <div className="space-y-2 py-6">
-              <a
-                href="#"
-                className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-orange-900 hover:bg-orange-100"
-              >
-                Home
-              </a>
-              <a
-                href="#"
-                className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-orange-900 hover:bg-orange-100"
-              >
-                Services
-              </a>
-              <a
-                href="#"
-                className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-orange-900 hover:bg-orange-100"
-              >
-                Portfolio
-              </a>
-              <a
-                href="#"
-                className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-orange-900 hover:bg-orange-100"
-              >
-                Contact
-              </a>
+              {pages.map(page => (
+                <a
+                  key={page.name}
+                  href={page.href}
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-orange-900 hover:bg-orange-100"
+                >
+                  {page.name}
+                </a>
+              ))}
             </div>
             <div className="py-6">
               <a
-                href="tel:+919876543210"
+                href={`tel:${metadata.phone}`}
                 className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-orange-900 hover:bg-orange-100"
               >
                 {metadata.phone}

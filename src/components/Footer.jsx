@@ -47,7 +47,7 @@ export default function Footer() {
               </span>
 
               <a
-                href="#"
+                href={`tel:${metadata.phone}`}
                 className="block text-2xl font-medium text-gray-900 hover:opacity-75 sm:text-3xl"
               >
                 {metadata.phone}

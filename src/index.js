@@ -7,6 +7,9 @@ import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import About from "./components/About";
 import WhyUs from "./components/WhyUs";
+import Team from "./components/Team";
+import Stats from "./components/Stats";
+import Services from "./components/Services";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,6 +17,9 @@ root.render(
     <Header />
     <Hero />
     <About />
+    <Services />
+    <Stats />
+    <Team />
     <WhyUs />
     <Footer />
   </React.StrictMode>
