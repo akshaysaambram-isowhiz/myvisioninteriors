@@ -1,12 +1,23 @@
 import React from "react";
 
 import { metadata } from "../store/constants";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 export default function Header() {
   function toggleMenu() {
     const mobileMenu = document.querySelector("#mobile-menu");
     mobileMenu.classList.toggle("translate-x-full");
   }
+
+  useGSAP(() => {
+    gsap.from("#desktop-menu", {
+      opacity: 0,
+      y: -100,
+      duration: 1,
+      ease: "power2.out",
+    });
+  });
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
