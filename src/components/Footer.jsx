@@ -1,6 +1,8 @@
 import React from "react";
 
 import { metadata } from "../store/constants";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const services = [
   {
@@ -27,6 +29,102 @@ const services = [
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+
+  useGSAP(() => {
+    const footerTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: "footer",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    // Animate footer image
+    footerTimeline.fromTo(
+      "footer .relative.block",
+      {
+        opacity: 0,
+        scale: 0.8,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+      }
+    );
+
+    // Animate contact section
+    footerTimeline.fromTo(
+      "footer .px-4.py-16 > div > div:first-child",
+      {
+        opacity: 0,
+        x: -50,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: "power2.out",
+      },
+      "-=0.5"
+    );
+
+    // Animate services and company sections
+    footerTimeline.fromTo(
+      "footer .grid.grid-cols-1 > div:last-child",
+      {
+        opacity: 0,
+        x: 50,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.8,
+        ease: "power2.out",
+      },
+      "-=0.6"
+    );
+
+    // Animate bottom section
+    footerTimeline.fromTo(
+      "footer .mt-12.border-t",
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+      },
+      "-=0.5"
+    );
+
+    // Hover effects for social icons and links
+    gsap.utils.toArray("footer a").forEach(link => {
+      link.addEventListener("mouseenter", () => {
+        gsap.to(link, {
+          scale: 1.1,
+          color: "#f97316", // orange-500
+          duration: 0.3,
+          ease: "power1.inOut",
+        });
+      });
+
+      link.addEventListener("mouseleave", () => {
+        gsap.to(link, {
+          scale: 1,
+          color: "",
+          duration: 0.3,
+          ease: "power1.inOut",
+        });
+      });
+    });
+  });
 
   return (
     <footer className="bg-white lg:grid lg:grid-cols-5">

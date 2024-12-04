@@ -1,9 +1,138 @@
 import React from "react";
+
 import { team } from "../store/constants";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 export default function Team() {
+  useGSAP(() => {
+    const teamTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#team",
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    // Animate section heading
+    teamTimeline.fromTo(
+      "#team h1",
+      {
+        opacity: 0,
+        y: 50,
+        scale: 0.9,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        ease: "power3.out",
+      }
+    );
+
+    // Animate description paragraph
+    teamTimeline.fromTo(
+      "#team p:first-of-type",
+      {
+        opacity: 0,
+        y: 30,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+      },
+      "-=0.5"
+    );
+
+    // Animate team cards with stagger effect
+    teamTimeline.fromTo(
+      "#team .grid > div",
+      {
+        opacity: 0,
+        y: 50,
+        scale: 0.8,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.7,
+        stagger: 0.2,
+        ease: "back.out(1.7)",
+      },
+      "-=0.3"
+    );
+
+    // Add interactive hover animations to team cards
+    gsap.utils.toArray("#team .grid > div").forEach(card => {
+      const image = card.querySelector("img");
+      const name = card.querySelector("h2");
+      const role = card.querySelector("p:nth-child(3)");
+      const desc = card.querySelector("p:last-child");
+
+      card.addEventListener("mouseenter", () => {
+        const tl = gsap.timeline();
+        tl.to(card, {
+          scale: 1.05,
+          boxShadow: "0 10px 15px rgba(255, 126, 51, 0.2)",
+          duration: 0.3,
+          ease: "power1.out",
+        })
+          .to(
+            image,
+            {
+              scale: 1.1,
+              rotation: 5,
+              duration: 0.3,
+            },
+            0
+          )
+          .to(
+            [name, role, desc],
+            {
+              y: -10,
+              opacity: 0.8,
+              duration: 0.3,
+            },
+            0
+          );
+      });
+
+      card.addEventListener("mouseleave", () => {
+        const tl = gsap.timeline();
+        tl.to(card, {
+          scale: 1,
+          boxShadow: "none",
+          duration: 0.3,
+          ease: "power1.in",
+        })
+          .to(
+            image,
+            {
+              scale: 1,
+              rotation: 0,
+              duration: 0.3,
+            },
+            0
+          )
+          .to(
+            [name, role, desc],
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.3,
+            },
+            0
+          );
+      });
+    });
+  });
+
   return (
-    <section className="bg-white">
+    <section id="team">
       <div className="px-8 py-12 mx-auto">
         <h1 className="text-3xl font-bold text-center text-gray-800 capitalize lg:text-4xl">
           Meet our
