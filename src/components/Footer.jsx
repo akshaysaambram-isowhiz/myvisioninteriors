@@ -1,8 +1,10 @@
 import React from "react";
 
-import { metadata } from "../store/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import { metadata } from "../store/constants";
 
 const services = [
   {
@@ -27,6 +29,8 @@ const services = [
   },
 ];
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -35,7 +39,7 @@ export default function Footer() {
       scrollTrigger: {
         trigger: "footer",
         start: "top 80%",
-        toggleActions: "play none none reverse",
+        toggleActions: "play reverse play reverse",
       },
     });
 

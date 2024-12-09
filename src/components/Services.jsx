@@ -1,6 +1,11 @@
 import React from "react";
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import { services } from "../store/constants";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Services() {
   return (

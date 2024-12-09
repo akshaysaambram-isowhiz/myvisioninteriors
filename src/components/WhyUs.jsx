@@ -1,6 +1,8 @@
+import React from "react";
+
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import React from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const images = [
   {
@@ -42,6 +44,8 @@ const bullets = [
     desc: "All our professionals are certified and excel in their respective fields. They are dedicated and know their jobs well.",
   },
 ];
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function WhyUs() {
   useGSAP(() => {

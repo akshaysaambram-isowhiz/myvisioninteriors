@@ -1,5 +1,10 @@
 import React from "react";
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Philosophy() {
   return (
     <section className="mx-auto px-4 py-12 rounded-lg">

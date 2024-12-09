@@ -1,5 +1,7 @@
 import React from "react";
 
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { HomeIcon, PaletteIcon, StarIcon } from "lucide-react";
 
 const features = [
@@ -25,6 +27,8 @@ const features = [
     color: "group-hover:text-purple-500",
   },
 ];
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
   return (

@@ -2,7 +2,9 @@ import React from "react";
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Menu, Phone, X } from "lucide-react";
+
 import { metadata } from "../store/constants";
 
 const pages = [
@@ -11,6 +13,8 @@ const pages = [
   { name: "Services", href: "/myvisioninteriors/services" },
   { name: "Contact", href: "#" },
 ];
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Header() {
   function toggleMenu() {

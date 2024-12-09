@@ -1,8 +1,12 @@
 import React from "react";
 
-import { stats } from "../store/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import { stats } from "../store/constants";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Stats() {
   useGSAP(() => {

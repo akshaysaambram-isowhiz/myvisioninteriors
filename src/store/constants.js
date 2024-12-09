@@ -8,7 +8,7 @@ export const services = [
     class: "md:col-span-2 md:row-span-2",
     href: "",
     image:
-      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "./myvisioninteriors/assets/hero2.jpg",
     desc: "Create inviting and stylish living spaces that reflect your personality.",
   },
   {

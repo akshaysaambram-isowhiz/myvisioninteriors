@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const images = [
   "./myvisioninteriors/assets/hero1.avif",
   "./myvisioninteriors/assets/hero2.jpg",
   "./myvisioninteriors/assets/hero3.jpg",
 ];
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
   const [currentImage, setCurrentImage] = useState(0);

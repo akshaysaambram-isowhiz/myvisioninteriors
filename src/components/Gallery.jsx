@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const galleryImages = [
   "./assets/hero2.jpg",
@@ -11,6 +12,8 @@ const galleryImages = [
   "./assets/hero2.jpg",
   "./assets/hero2.jpg",
 ];
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Gallery() {
   const galleryRef = useRef(null);

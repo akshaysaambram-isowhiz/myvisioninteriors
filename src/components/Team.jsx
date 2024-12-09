@@ -1,8 +1,12 @@
 import React from "react";
 
-import { team } from "../store/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import { team } from "../store/constants";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Team() {
   useGSAP(() => {
