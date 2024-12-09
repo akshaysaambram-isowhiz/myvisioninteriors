@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/myvisioninteriors/static/css/main.c8a8e744.css",
-    "main.js": "/myvisioninteriors/static/js/main.5a0ae5ce.js",
+    "main.css": "/myvisioninteriors/static/css/main.aff282e7.css",
+    "main.js": "/myvisioninteriors/static/js/main.ae20c027.js",
     "static/js/453.60c4b431.chunk.js": "/myvisioninteriors/static/js/453.60c4b431.chunk.js",
     "index.html": "/myvisioninteriors/index.html",
-    "main.c8a8e744.css.map": "/myvisioninteriors/static/css/main.c8a8e744.css.map",
-    "main.5a0ae5ce.js.map": "/myvisioninteriors/static/js/main.5a0ae5ce.js.map",
+    "main.aff282e7.css.map": "/myvisioninteriors/static/css/main.aff282e7.css.map",
+    "main.ae20c027.js.map": "/myvisioninteriors/static/js/main.ae20c027.js.map",
     "453.60c4b431.chunk.js.map": "/myvisioninteriors/static/js/453.60c4b431.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c8a8e744.css",
-    "static/js/main.5a0ae5ce.js"
+    "static/css/main.aff282e7.css",
+    "static/js/main.ae20c027.js"
   ]
 }
