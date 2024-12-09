@@ -4,9 +4,9 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 const images = [
-  "./assets/hero1.avif",
-  "./assets/hero2.jpg",
-  "./assets/hero3.jpg",
+  "./myvisioninteriors/assets/hero1.avif",
+  "./myvisioninteriors/assets/hero2.jpg",
+  "./myvisioninteriors/assets/hero3.jpg",
 ];
 
 export default function Hero() {
@@ -20,7 +20,6 @@ export default function Hero() {
   }, []);
 
   useGSAP(() => {
-    // Animate hero text with a dynamic entrance
     const heroTimeline = gsap.timeline();
 
     heroTimeline
@@ -53,19 +52,6 @@ export default function Hero() {
         },
         "-=0.6"
       );
-
-    // Add a subtle parallax effect to background images
-    gsap.utils
-      .toArray("section div[style*='backgroundImage']")
-      .forEach((bgImage, index) => {
-        gsap.to(bgImage, {
-          backgroundPosition: `50% ${index % 2 === 0 ? "120%" : "80%"}`,
-          ease: "power1.inOut",
-          duration: 5,
-          repeat: -1,
-          yoyo: true,
-        });
-      });
   });
 
   return (

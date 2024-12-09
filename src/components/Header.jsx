@@ -1,13 +1,14 @@
 import React from "react";
 
-import { metadata } from "../store/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { Menu, Phone, X } from "lucide-react";
+import { metadata } from "../store/constants";
 
 const pages = [
-  { name: "Home", href: "#" },
-  { name: "About", href: "#" },
-  { name: "Services", href: "#" },
+  { name: "Home", href: "/myvisioninteriors" },
+  { name: "About", href: "/myvisioninteriors#about" },
+  { name: "Services", href: "/myvisioninteriors/services" },
   { name: "Contact", href: "#" },
 ];
 
@@ -28,13 +29,10 @@ export default function Header() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div
-        id="desktop-menu"
-        className="p-4 bg-gradient-to-b from-black to-transparent"
-      >
+      <div id="desktop-menu" className="px-4 py-3 bg-black/50">
         <div className="flex items-center justify-between">
-          <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
+          <div className="flex-shrink-0">
+            <a href="#" className="flex items-center">
               <span className="sr-only">My Vision Interiors</span>
               <img
                 className="h-8 w-auto"
@@ -45,12 +43,12 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation  */}
-          <div className="hidden lg:flex lg:gap-x-12">
+          <div className="hidden lg:flex space-x-8">
             {pages.map(page => (
               <a
                 key={page.name}
                 href={page.href}
-                className="text-base/7 font-semibold text-orange-100 hover:text-orange-700"
+                className="text-orange-200 hover:text-orange-700 font-extrabold transition-colors duration-300 tracking-wide text-base relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-0.5 after:bg-orange-700 hover:after:w-full after:transition-all"
               >
                 {page.name}
               </a>
@@ -58,33 +56,22 @@ export default function Header() {
           </div>
 
           {/* Mobile Menu Toggle  */}
-          <div className="flex lg:hidden">
+          <div className="lg:hidden">
             <button className="text-orange-900" onClick={toggleMenu}>
               <span className="sr-only" aria-label="Open main menu">
                 Open main menu
               </span>
-              <svg
-                className="size-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                />
-              </svg>
+              <Menu className="size-6" />
             </button>
           </div>
 
           {/* Desktop Contact  */}
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <div className="hidden lg:flex items-center">
             <a
               href={`tel:${metadata.phone}`}
-              className="text-base/7 font-semibold text-orange-100 hover:text-orange-700"
+              className="flex items-center px-4 py-2 bg-orange-600 text-white rounded-full hover:bg-orange-700 transition-colors group"
             >
+              <Phone className="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" />
               {metadata.phone}
             </a>
           </div>
@@ -107,19 +94,7 @@ export default function Header() {
           </a>
           <button className="text-orange-900" onClick={toggleMenu}>
             <span className="sr-only">Close menu</span>
-            <svg
-              className="size-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <X className="size-6" />
           </button>
         </div>
         <div className="mt-6 flow-root">
